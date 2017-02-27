@@ -1,3 +1,11 @@
+<div class="row">
+<h1>Alunos</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li><a href="index2.php?pagina=aluno">Alunos</a></li>
+<li class="active">Excluir</li>
+</ol>
+</div>
 <?php
 //Abrir Conexão
 $link = mysqli_connect('localhost','root','','maestro');

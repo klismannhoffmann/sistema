@@ -3,6 +3,13 @@
 <span><?=(isset($mensagem)) ? $mensagem :'';?></span>
 <br/>
 
+<div class="row">
+<h1>Professor</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li class="active">Professor</li>
+</ol>
+</div>
 <a href="index2.php?pagina=professor_formulario2" class="btn btn-success">Adicionar</a>
 <?php 
 //Abrir de conexão
@@ -19,6 +26,7 @@
 								<td>Email</td>
 	                            <td>Endereço</td>
 	                          	<td>Telefone</td>
+	                          	<td>Acões</td>
 								
 							</tr>
 						<?php while($row = mysqli_fetch_assoc($handle)){ ?>

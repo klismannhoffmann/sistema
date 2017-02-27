@@ -2,6 +2,13 @@
 <span><?=(isset($mensagem)) ? $mensagem :'';?></span>
 <br/>
 
+<div class="row">
+<h1>Alunos</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li class="active">Alunos</li>
+</ol>
+</div>
 <a href="index2.php?pagina=aluno_formulario2" class="btn btn-success">Adicionar</a>
 <?php 
 //Abrir de conexão

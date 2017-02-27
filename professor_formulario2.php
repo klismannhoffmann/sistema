@@ -9,7 +9,17 @@ $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $endereco = filter_input(INPUT_POST, 'endereco', FILTER_SANITIZE_STRING);
 $salvar = filter_input(INPUT_POST, 'salvar', FILTER_VALIDATE_INT);
 if(!$id)
-{
+{ ?>
+	
+	<div class="row">
+<h1>Professor</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li><a href="index2.php?pagina=professor">Professor</a></li>
+<li class="active">Adicionar</li>
+</ol>
+</div>
+	<?php
 	//CRIAR
 
 	if($salvar){
@@ -48,7 +58,16 @@ if(!$id)
 
 }
 else
-{
+{?>
+<div class="row">
+<h1>Professor</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li><a href="index2.php?pagina=professor">Professor</a></li>
+<li class="active">Editar</li>
+</ol>
+</div>
+<?php 
 	//EDITAR
 	if($salvar){
 		//Salvo os dados no arquivo
@@ -109,19 +128,19 @@ else
 	<input type="hidden" name="id" value="<?php echo $id;?>" />
 	
 	<label>Nome</label>
-	<input type="text" name="nome" value="<?php echo $nome;?>" />
+	<input type="text" name="nome" value="<?php echo $nome;?>" placeholder="Informe Professor"/>
 	<span><?=(isset($mensagem['nome'])) ? $mensagem['nome'] : '';?></span>
 	<br/>
 	<label>Telefone</label>
-	<input type="text" name="telefone" value="<?php echo $telefone;?>" />
+	<input type="text" name="telefone" value="<?php echo $telefone;?>"placeholder="Informe o Telefone"/>
 	<span><?=(isset($mensagem['telefone'])) ? $mensagem['telefone'] : '';?></span>
 	<br/>
 	<label>Endereço</label>
-	<input type="text" name="endereco" value="<?php echo $endereco;?>" />
+	<input type="text" name="endereco" value="<?php echo $endereco;?>" placeholder="Informe o Enderço"/>
 	<span><?=(isset($mensagem['endereco'])) ? $mensagem['endereco'] : '';?></span>
 	<br/>
 	<label>Email</label>
-	<input type="text" name="email" value="<?php echo $email;?>" />
+	<input type="text" name="email" value="<?php echo $email;?>" placeholder="Informe o Email"/>
 	<span><?=(isset($mensagem['email'])) ? $mensagem['email'] : '';?></span>
 	<br/>
 	<br/>

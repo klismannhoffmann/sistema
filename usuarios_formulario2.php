@@ -6,8 +6,17 @@ $id = isset($_POST['id']) ? filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT) 
 $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
 $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 $salvar = filter_input(INPUT_POST, 'salvar', FILTER_VALIDATE_INT);
-if(!$id)
-{
+if(!$id){
+// ?>
+	<div class="row">
+<h1>Usuarios</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li><a href="index2.php?pagina=usuarios">Usuarios</a></li>
+<li class="active">Adicionar</li>
+</ol>
+</div>
+<?php
 	//CRIAR
 
 	if($salvar){
@@ -40,7 +49,17 @@ if(!$id)
 
 }
 else
-{
+{?>
+
+	<div class="row">
+<h1>Usuarios</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li><a href="index2.php?pagina=usuarios">Usuarios</a></li>
+<li class="active">Editar</li>
+</ol>
+</div>
+<?php
 	//EDITAR
 	if($salvar){
 		//Salvo os dados no arquivo
@@ -94,11 +113,11 @@ else
 	<input type="hidden" name="id" value="<?php echo $id;?>" />
 	
 	<label>Usuário</label>
-	<input type="text" name="usuario" value="<?php echo $usuario;?>" />
+	<input type="text" name="usuario" value="<?php echo $usuario;?>" placeholder="Informe o Usuário" />
 	<span><?=(isset($mensagem['usuario'])) ? $mensagem['usuario'] : '';?></span>
 	<br/>
 	<label>Senha</label>
-	<input type="text" name="senha" value="<?php echo $senha;?>" />
+	<input type="text" name="senha" value="<?php echo $senha;?>"placeholder="Informe a Senha" />
 	<span><?=(isset($mensagem['senha'])) ? $mensagem['senha'] : '';?></span>
 	<br/>
 	<button type="submit" name="salvar" value="1" class="btn btn-success">Salvar</button>

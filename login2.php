@@ -1,4 +1,20 @@
-
+<html>
+<head>
+<title>Maestro Autenticação</title>
+<link rel="stylesheet" href='./css/bootstrap.css' />
+<link rel="stylesheet" href='./css/estilos2.css' />
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="./js/bootstrap.js"></script>
+</head>
+<body>
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-4" id="logo2">
+					<img src="./img/maestro.png" alt="Logo do sistema Maestro" />
+				</div>
+				</div>
+				</div>
+				
 <?php
 session_start();
 
@@ -24,23 +40,14 @@ if(!$usuario){
 }
 
 ?>
-<html>
-	<head>
-	<title>Autenticação</title>
-	
-	
-	</head>
-	<body>
 		<p> <?php echo $mensagem;?></p>
 		<form method="post">
 			<label>Usuario</label>
-			<input type="text" name="usuario" value="<?php echo $usuario?>"/>
+			<input type="text" name="usuario" value="<?php echo $usuario?>" placeholder="Digite a Usuario"/>
 			<label>Senha</label>			
-			<input type="password" name="senha"/>
+			<input type="password" name="senha" placeholder="Digite a Senha"/>
 			<button type="submit"> Acessar</button>
 		</form>
-		
-
 	</body>
 
 

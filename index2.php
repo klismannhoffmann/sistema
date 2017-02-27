@@ -23,8 +23,13 @@ switch($pagina){
 	case 'usuarios_formulario2':{include ('usuarios_formulario2.php'); break;}
 	case 'usuarios_deleta2':{include ('usuario_deleta2.php'); break;}
 	
+	case 'requisitos':{include('requisito.php'); break;}
+	
+	case 'matricula':{include('matricula.php'); break;}
+	case 'matricula_deleta':{include('matricula_deleta.php'); break;}
+	case 'curso_deleta':{include('curso_deleta.php'); break;}
 	case 'curso_formulario':{include('cursos_formulario.php'); break;}
-	case 'curos':{include ('cursos_lista.php'); break;}
+	case 'cursos':{include ('cursos_lista.php'); break;}
 	default:{include('dashboard2.php');break;}
 	}
 	

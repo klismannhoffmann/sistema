@@ -6,12 +6,22 @@ $id = isset($_POST['id']) ? filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT) 
 $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
 $professor = filter_input(INPUT_POST, 'professor', FILTER_SANITIZE_STRING);
 $carga_horaria = filter_input(INPUT_POST, 'carga_horaria', FILTER_SANITIZE_STRING);
-$data_incio = filter_input(INPUT_POST, 'data_inicio', FILTER_SANITIZE_STRING);
+$data_inicio = filter_input(INPUT_POST, 'data_inicio', FILTER_SANITIZE_STRING);
 $data_fim = filter_input(INPUT_POST, 'data_fim', FILTER_SANITIZE_STRING);
 $vagas = filter_input(INPUT_POST, 'vagas', FILTER_SANITIZE_STRING);
 $salvar = filter_input(INPUT_POST, 'salvar', FILTER_VALIDATE_INT);
-if(!$id)
-{
+if(!$id){?>
+
+	
+<div class="row">
+<h1>Cursos</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li><a href="index2.php?pagina=cursos">Cursos</a></li>
+<li class="active">Adicionar</li>
+</ol>
+</div>
+<?php
 	//CRIAR
 
 	if($salvar){
@@ -22,9 +32,8 @@ if(!$id)
 		}elseif(!$professor){
 			$mensagem['professor'] = 'Preencha a professor';
 			}
-			elseif(!$endereco){
-				$mensagem['endereco'] = 'Preencha a endereço';
-			}elseif(!$data_incio){
+		
+			elseif(!$data_inicio){
 				$mensagem['data_inicio'] = 'Informe a Data do Inicio do Curso';
 			}
 			elseif(!$data_fim){
@@ -57,8 +66,17 @@ if(!$id)
 
 }
 else
-{
-	//EDITAR
+{ ?>
+<div class="row">
+<h1>Cursos</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li><a href="index2.php?pagina=cursos">Cursos</a></li>
+<li class="active">Editar</li>
+</ol>
+</div>
+<?php 
+//EDITAR
 	if($salvar){
 		//Salvo os dados no arquivo
 		//Verificando o preenchimento
@@ -67,9 +85,8 @@ else
 		}elseif(!$professor){
 			$mensagem['professor'] = 'Preencha a professor';
 		}
-		elseif(!$endereco){
-			$mensagem['endereco'] = 'Preencha a endereço';
-		}elseif(!$data_inicio){
+		
+		elseif(!$data_inicio){
 			$mensagem['data_inicio'] = 'Informe a Data do Inicio do Curso';
 		}
 		elseif(!$data_fim){
@@ -88,7 +105,7 @@ else
 			$conexao = mysqli_select_db($link, 'maestro');
 			//Faz o Uso
 			//Atualizando os dados
-			$sql = "update curso set	nome = '$nome',id_professor = '$professor',	carga_horaria = '$carga_horaria', data_inicio='$data_inicio', data_fim='$data_fim', vagas='$vagas'  where	id_curo='$id'";
+			$sql = "update curso set nome = '$nome',id_professor = '$professor',	carga_horaria = '$carga_horaria', data_inicio='$data_inicio', data_fim='$data_fim', vagas='$vagas'  where	id_curso='$id'";
 
 			$resultado = mysqli_query($link, $sql);
 			//Fechei a conexao
@@ -132,29 +149,29 @@ else
 	<input type="hidden" name="id" value="<?php echo $id;?>" />
 	
 	<label>Nome</label>
-	<input type="text" name="nome" value="<?php echo $nome;?>" />
+	<input type="text" name="nome" value="<?php echo $nome;?>" placeholder="Informe  Curso" />
 	<span><?=(isset($mensagem['nome'])) ? $mensagem['nome'] : '';?></span>
 	<br/>
 	<label>Professor</label>
-	<input type="text" name="professor" value="<?php echo $professor;?>" />
+	<input type="text" name="professor" value="<?php echo $professor;?>" placeholder="Informe  Professor"/>
 	<span><?=(isset($mensagem['telefone'])) ? $mensagem['professor'] : '';?></span>
 	<br/>
 	<label>Carga Horaria</label>
-	<input type="text" name="carga_horaria" value="<?php echo $carga_horaria;?>" />
+	<input type="text" name="carga_horaria" value="<?php echo $carga_horaria;?>" placeholder="Informe a Carga Horaria"/>
 	<span><?=(isset($mensagem['carga_horaria'])) ? $mensagem['carga_horaria'] : '';?></span>
 	<br/>
 
 	<label>Data de Inicio</label>
-		<input type="text" name="data_inicio" value="<?php echo $data_inicio;?>" />
+		<input type="text" name="data_inicio" value="<?php echo $data_inicio;?>" placeholder="Informe a Data de Inicio" />
 	<span><?=(isset($mensagem['data_inicio'])) ? $mensagem['data_inicio'] : '';?></span>
 
 	<br/>
-	<label>Data de Enceramento</label>
-	<input type="text" name="data_fim" value="<?php echo $data_fim;?>" />
+	<label >Data de Enceramento</label>
+	<input type="text" name="data_fim" value="<?php echo $data_fim;?>" placeholder="Informe a Data de Encerramento"/>
 	<span><?=(isset($mensagem['data_fim'])) ? $mensagem['data_fim'] : '';?></span>
 	<br/>
 	<label>Numero de Vagas</label>
-	<input type="text" name="vagas" value="<?php echo $vagas;?>" />
+	<input type="text" name="vagas" value="<?php echo $vagas;?>" placeholder="Informe o Numero de Vagas"/>
 	<span><?=(isset($mensagem['vagas'])) ? $mensagem['vagas'] : '';?></span>
 	<br/>
 	

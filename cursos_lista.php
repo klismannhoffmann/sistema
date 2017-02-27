@@ -3,6 +3,13 @@
 <span><?=(isset($mensagem)) ? $mensagem :'';?></span>
 <br/>
 
+<div class="row">
+<h1>Cursos</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li class="active">Cursos</li>
+</ol>
+</div>
 <a href="index2.php?pagina=curso_formulario" class="btn btn-success">Adicionar</a>
 <?php 
 //Abrir de conexão
@@ -26,16 +33,16 @@
 		<tr>
 			<td><?php echo $row['id_curso'];?></td>
 			<td><?php echo $row['nome'];?></td>
-			<td><?php echo $row['responsavel'];?></td>
+			<td><?php echo $row['id_professor'];?></td>
 			<td><?php echo $row['carga_horaria'];?></td>
 			<td><?php echo $row['data_inicio'];?></td>
 			<td><?php echo $row['data_fim'];?></td>
 			<td><?php echo $row['vagas'];?></td>
 			
 			<td>
-				<a href="index2.php?pagina=curso_requisitos&id=<?php echo $row['id_curso'];?>" class="btn btn-primary">Requisitos</a>
+				<a href="index2.php?pagina=requisitos&id=<?php echo $row['id_curso'];?>" class="btn btn-primary">Requisitos</a>
 				<a href="index2.php?pagina=curso_formulario&id=<?php echo $row['id_curso'];?>" class="btn btn-primary">Editar</a>
-				<a href="index2.php?pagina=curso_deleta2&id=<?php echo $row['id_curso'];?>"  class="btn btn-danger">Deletar</a>
+				<a href="index2.php?pagina=curso_deleta&id=<?php echo $row['id_curso'];?>"  class="btn btn-danger">Deletar</a>
 			</td>
 		</tr>
 		<?php } ?>

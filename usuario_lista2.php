@@ -3,6 +3,13 @@
 <span><?=(isset($mensagem)) ? $mensagem :'';?></span>
 <br/>
 
+<div class="row">
+<h1>Usuarios</h1>
+<ol class="breadcrumb">
+<li><a href="index2.php?pagina=eu">Maestro</a></li>
+<li class="active">Usuarios</li>
+</ol>
+</div>
 <a href="index2.php?pagina=usuarios_formulario2" class="btn btn-success">Adicionar</a>
 <?php 
 //Abrir de conexão
@@ -11,7 +18,7 @@
 	$query = 'SELECT * FROM usuarios';
 	$handle = mysqli_query($link, $query);
 	?>
-	<table>
+	<table class="table table-striped table-bordered table-hover">
 		<tr>
 			<td>ID</td>
 			<td>Nome</td>
