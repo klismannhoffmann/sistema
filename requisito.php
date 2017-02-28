@@ -26,9 +26,10 @@
 		</tr>
 		<?php while($row = mysqli_fetch_assoc($handle)){ ?>
 		<tr>
-			<td><?php echo $row['id_matricula'];?></td>
-			<td><?php echo $row['id_aluno'];?></td>
-			<td><?php echo $row['id_curso'];?></td>
+			<td><?php echo $row['id_requisitos'];?></td>
+			<td><?php echo $row['id_curo'];?></td>
+			<td><?php echo $row['requisitos'];?></td>
+	
 		<td>
 			<a href="index2.php?pagina=aluno_deleta2&id=<?php echo $row['id_aluno'];?>"  class="btn btn-danger">Deletar</a>
 			</td>
