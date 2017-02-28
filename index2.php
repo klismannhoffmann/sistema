@@ -1,12 +1,8 @@
-
 <?php session_start(); ?>
-
 <?php if(!isset($_SESSION ['autenticado']) OR !$_SESSION ['autenticado']) { ?>
 	<?php header('location:login2.php');?>
 <?php } ?>
-			
 <?php  include('header2.php');  ?>
-
 <?php 
 $pagina=filter_input(INPUT_GET,'pagina',FILTER_SANITIZE_STRING);
 switch($pagina){
@@ -27,13 +23,11 @@ switch($pagina){
 	
 	case 'matricula':{include('matricula.php'); break;}
 	case 'matricula_deleta':{include('matricula_deleta.php'); break;}
+	
 	case 'curso_deleta':{include('curso_deleta.php'); break;}
 	case 'curso_formulario':{include('cursos_formulario.php'); break;}
 	case 'cursos':{include ('cursos_lista.php'); break;}
 	default:{include('dashboard2.php');break;}
 	}
-	
 ?>
-
-
 <?php  include('footer.php');  ?>
